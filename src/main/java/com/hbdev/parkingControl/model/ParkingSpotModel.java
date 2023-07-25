@@ -2,6 +2,7 @@ package com.hbdev.parkingControl.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.UUID;
 
@@ -40,21 +41,18 @@ public class ParkingSpotModel implements Serializable {
 	private String colorCar;
 	
 	@Column(nullable = false)
-	private LocalTime registrationDate;
+	private LocalDateTime registrationDate;
 	
 	@Column(nullable = false, length = 130)
 	private String responsableName;
 	
 	@Column(nullable = false, length = 30)
-	private String apartament;
+	private String apartment;
 	
 	@Column(nullable = false, length = 30)
 	private String block;
 
-	public void setRegistrationDate(LocalTime now) {
-		this.registrationDate = now;
-		
-	}
+	
 	
 	
 	

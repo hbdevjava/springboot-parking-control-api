@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class ParkingSpotDTO {
+public class ParkingSpotDto {
 
 	@NotBlank
 	private String parkingSpotNumber;
@@ -27,7 +27,7 @@ public class ParkingSpotDTO {
 	private String responsableName;
 
 	@NotBlank
-	private String apartament;
+	private String apartment;
 
 	@NotBlank
 	private String block;

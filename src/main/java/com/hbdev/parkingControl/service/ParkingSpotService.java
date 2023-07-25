@@ -1,6 +1,13 @@
 package com.hbdev.parkingControl.service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import com.hbdev.parkingControl.model.ParkingSpotModel;
@@ -24,20 +31,35 @@ public class ParkingSpotService {
 		return parkingSpotRepository.save(parkingSpotModel);
 	}
 
-	public boolean existesByLicensePlateCar(String licensePlateCar) {
+	public boolean existsByLicensePlateCar(String licensePlateCar) {
+		return parkingSpotRepository.existsByLicensePlateCar(licensePlateCar);
+	}
+
+	public boolean existsByParkingSpotNumber(String parkingSpotNumber) {
+		return parkingSpotRepository.existsByParkingSpotNumber(parkingSpotNumber);
+	}
+
+	public boolean existsByApartmentAndBlock(String apartment, String block) {
+		return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
+	}
+
+	public List<ParkingSpotModel> findAll() {
 		
-		return false;
+			return parkingSpotRepository.findAll();
+    }
+
+	public Optional<ParkingSpotModel> findById(UUID id) {
+
+		return parkingSpotRepository.findById(id);
 	}
 	
-	public boolean existesByParkingSpotNumber(String parkingSpotNumber) {
-
-		return false;
-	}
-
-	public boolean existesByApartamentAndBlock(String apartament) {
+	@Transactional
+	public void deleteById(UUID id) {
 		
-		return false;
+		parkingSpotRepository.deleteById(id);
 	}
 
+	
+	
 
 }
